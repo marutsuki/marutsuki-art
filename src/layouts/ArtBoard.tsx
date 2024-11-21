@@ -7,7 +7,7 @@ export type ArtBoardProps = {
 
 const ArtBoard = forwardRef<HTMLHeadingElement, ArtBoardProps>(
   ({ label, children }: ArtBoardProps, ref) => (
-    <section className="flex flex-row gap-12 items-start">
+    <section className="flex flex-row gap-12 items-start m-8">
       <h2 ref={ref} className="text-2xl">
         {label}
       </h2>
