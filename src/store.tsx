@@ -1,8 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
+import menuReducer from "./component/menu/menu.slice";
 
 const store = configureStore({
-  reducer: {},
+  reducer: {
+    menu: menuReducer,
+  },
 });
 
 export type RootState = ReturnType<typeof store.getState>;
