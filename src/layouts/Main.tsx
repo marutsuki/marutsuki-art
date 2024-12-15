@@ -3,21 +3,33 @@ import Artwork from "../component/Artwork";
 import ArtBoard from "./ArtBoard";
 import Menu from "../component/menu/Menu";
 import NavigableSection from "../component/menu/NavigableSection";
-import { useDispatch } from "react-redux";
-import { selectOption } from "../component/menu/menu.slice";
+import { resetAndNavigate } from "../component/menu/menu.thunk";
+import { useAppDispatch } from "../store";
 
 const Main: FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const yearLabels = useRef<HTMLHeadingElement[]>([]);
   return (
     <main>
       <Menu
         location={{ x: 0, y: 200 }}
         options={[
-          { label: "2024", callback: () => dispatch(selectOption("2024")) },
-          { label: "2023", callback: () => dispatch(selectOption("2023")) },
-          { label: "2022", callback: () => dispatch(selectOption("2022")) },
-          { label: "2021", callback: () => dispatch(selectOption("2021")) },
+          {
+            label: "2024",
+            callback: () => dispatch(resetAndNavigate("2024")),
+          },
+          {
+            label: "2023",
+            callback: () => dispatch(resetAndNavigate("2023")),
+          },
+          {
+            label: "2022",
+            callback: () => dispatch(resetAndNavigate("2022")),
+          },
+          {
+            label: "2021",
+            callback: () => dispatch(resetAndNavigate("2021")),
+          },
         ]}
       />
       <div className="mr-48">

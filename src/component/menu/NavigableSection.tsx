@@ -1,6 +1,6 @@
 import { FC, ReactNode, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
-import { Option, selectActiveMenuOption } from "./menu.slice";
+import { Option, selectActiveOption, selectDirtyFlag } from "./menu.slice";
 
 export type NavigableSectionProps = {
   id: Option;
@@ -11,7 +11,8 @@ const yOffset = -100;
 
 const NavigableSection: FC<NavigableSectionProps> = ({ id, children }) => {
   const section = useRef<HTMLDivElement>(null);
-  const activeMenuOption = useSelector(selectActiveMenuOption);
+  const activeMenuOption = useSelector(selectActiveOption);
+  const dirty = useSelector(selectDirtyFlag);
 
   useEffect(() => {
     if (id === activeMenuOption && section.current) {
@@ -19,7 +20,7 @@ const NavigableSection: FC<NavigableSectionProps> = ({ id, children }) => {
         section.current?.getBoundingClientRect().top + window.scrollY + yOffset;
       window.scrollTo({ top: y, behavior: "smooth" });
     }
-  }, [id, activeMenuOption]);
+  }, [id, activeMenuOption, dirty]);
 
   return <div ref={section}>{children}</div>;
 };

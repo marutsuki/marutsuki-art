@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Option, selectActiveMenuOption } from "./menu.slice";
+import { Option, selectActiveOption } from "./menu.slice";
 import { useSelector } from "react-redux";
 
 type Point = {
@@ -17,12 +17,12 @@ type MenuProps = {
 };
 
 const Menu: FC<MenuProps> = ({ location, options }) => {
-  const activeMenuOption = useSelector(selectActiveMenuOption);
+  const activeMenuOption = useSelector(selectActiveOption);
   return (
     <menu className="fixed" style={{ top: location.y, left: location.x }}>
       {options.map((opt, i) => (
         <>
-          <div className="flex flex-row items-center">
+          <div key={i} className="flex flex-row items-center">
             <svg
               className="w-3 m-2"
               viewBox="0 0 100 100"
