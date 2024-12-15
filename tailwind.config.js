@@ -5,7 +5,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        display: ['Jura', 'mono'],
+        text: ['Red Hat Text', 'mono']
+      }
+    },
   },
   plugins: [],
 }

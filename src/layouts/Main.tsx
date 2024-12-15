@@ -33,14 +33,24 @@ const Main: FC = () => {
         ]}
       />
       <div className="mr-48">
-        <div className="text-left top-0 sticky z-50 drop-shadow-lg mix-blend-difference invert mb-48">
+        <div className="text-left top-0 sticky z-50 drop-shadow-lg mix-blend-difference invert mb-48 flex justify-between">
           <div className="flex items-center">
             <img src="/marutsuki.png" className="w-16" />
             <div>
-              <h1 className=" ">marutsuki</h1>
+              <h1 className="font-display">marutsuki</h1>
               <h2>Digital artist</h2>
             </div>
           </div>
+          <section className="flex flex-col justify-center">
+            <div className="flex gap-2 justify-end">
+              <h2 className="">Email:</h2>
+              <p>lucien.7789@gmail.com</p>
+            </div>
+            <div className="flex gap-2 justify-end">
+              <h2 className="">Phone:</h2>
+              <p>+61 468 435 818</p>
+            </div>
+          </section>
         </div>
 
         <NavigableSection id="2024">
