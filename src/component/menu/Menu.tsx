@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Option, selectActiveOption } from "./menu.slice";
 import { useSelector } from "react-redux";
+import clsx from "clsx";
 
 type Point = {
   x: number;
@@ -24,25 +25,31 @@ const Menu: FC<MenuProps> = ({ location, options }) => {
         <>
           <div key={i} className="flex flex-row items-center">
             <svg
-              className="w-3 m-2"
+              className="w-3 m-2 dark:fill-darkFg"
               viewBox="0 0 100 100"
               xmlns="http://www.w3.org/2000/svg"
             >
               <circle cx="50" cy="50" r="50" />
             </svg>
             <h2
-              className={
-                "cursor-pointer transition border-b-0 " +
-                (activeMenuOption === opt.label ? "!border-b border-black" : "")
-              }
+              className={clsx(
+                "cursor-pointer transition border-b-0 border-lightFg dark:border-darkFg dark:text-darkFg",
+                {
+                  "!border-b": activeMenuOption === opt.label,
+                }
+              )}
               onClick={opt.callback}
             >
               {opt.label}
             </h2>
           </div>
           {i !== options.length - 1 && (
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <line x1={20} x2={20} y1={0} y2={100} stroke="black" />
+            <svg
+              className="stroke-lightFg dark:stroke-darkFg"
+              viewBox="0 0 100 100"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <line x1={20} x2={20} y1={0} y2={100} />
             </svg>
           )}
         </>

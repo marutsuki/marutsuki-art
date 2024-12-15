@@ -5,12 +5,27 @@ import Menu from "../component/menu/Menu";
 import NavigableSection from "../component/menu/NavigableSection";
 import { resetAndNavigate } from "../component/menu/menu.thunk";
 import { useAppDispatch } from "../store";
+import clsx from "clsx";
+import { useSelector } from "react-redux";
+import { selectTheme, toggleMode } from "../theme.slice";
+import {
+  DarkModeIcon,
+  InstaIcon,
+  PixivIcon,
+  TwitterIcon,
+} from "../component/icons/icons";
 
 const Main: FC = () => {
   const dispatch = useAppDispatch();
+  const theme = useSelector(selectTheme);
   const yearLabels = useRef<HTMLHeadingElement[]>([]);
   return (
-    <main>
+    <main
+      className={clsx("w-full", {
+        "dark bg-darkBg text-darkFg": theme === "dark",
+        "light bg-lightBg text-lightFg": theme === "light",
+      })}
+    >
       <Menu
         location={{ x: 0, y: 200 }}
         options={[
@@ -33,20 +48,42 @@ const Main: FC = () => {
         ]}
       />
       <div className="mr-48">
-        <div className="text-left top-0 sticky z-50 drop-shadow-lg mix-blend-difference invert mb-48 flex justify-between">
+        <div className="text-left top-0 sticky z-50 drop-shadow-lg mb-48 flex justify-between">
           <div className="flex items-center">
-            <img src="/marutsuki.png" className="w-16" />
+            <img src="/marutsuki.png" className="w-16 dark:invert" />
             <div>
-              <h1 className="font-display">marutsuki</h1>
-              <h2>Digital artist</h2>
+              <h1 className="font-display dark:text-darkFg">marutsuki</h1>
+              <h2 className="dark:text-darkFg">Digital artist</h2>
             </div>
           </div>
           <section className="flex flex-col justify-center">
-            <div className="flex gap-2 justify-end">
+            <div className="my-2 flex gap-2 justify-end">
+              <PixivIcon
+                className="cursor-pointer duration-100 hover:fill-active active:scale-110 dark:invert"
+                onClick={() =>
+                  window.open("https://www.pixiv.net/en/users/39281985")
+                }
+              />
+              <TwitterIcon
+                className="cursor-pointer duration-100 hover:fill-active active:scale-110 dark:invert"
+                onClick={() => window.open("https://twitter.com/marutsuki_")}
+              />
+              <InstaIcon
+                className="cursor-pointer duration-100 hover:fill-active active:scale-110 dark:invert"
+                onClick={() =>
+                  window.open("https://www.instagram.com/marutsuki_/")
+                }
+              />
+              <DarkModeIcon
+                className="cursor-pointer duration-100 hover:fill-active active:scale-110 dark:invert"
+                onClick={() => dispatch(toggleMode())}
+              />
+            </div>
+            <div className="flex gap-2 justify-end [&_*]:dark:text-darkFg">
               <h2 className="">Email:</h2>
               <p>lucien.7789@gmail.com</p>
             </div>
-            <div className="flex gap-2 justify-end">
+            <div className="flex gap-2 justify-end [&_*]:dark:text-darkFg">
               <h2 className="">Phone:</h2>
               <p>+61 468 435 818</p>
             </div>
