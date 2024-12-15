@@ -7,13 +7,17 @@ export type NavigableSectionProps = {
   children: ReactNode | ReactNode[];
 };
 
+const yOffset = -100;
+
 const NavigableSection: FC<NavigableSectionProps> = ({ id, children }) => {
   const section = useRef<HTMLDivElement>(null);
   const activeMenuOption = useSelector(selectActiveMenuOption);
 
   useEffect(() => {
-    if (id === activeMenuOption) {
-      section.current?.scrollIntoView();
+    if (id === activeMenuOption && section.current) {
+      const y =
+        section.current?.getBoundingClientRect().top + window.scrollY + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
     }
   }, [id, activeMenuOption]);
 
