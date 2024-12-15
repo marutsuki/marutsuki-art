@@ -34,8 +34,13 @@ const Main: FC = () => {
       />
       <div className="mr-48">
         <div className="text-left top-0 sticky z-50 drop-shadow-lg mix-blend-difference invert mb-48">
-          <h1 className=" ">marutsuki</h1>
-          <h2>Digital artist</h2>
+          <div className="flex items-center">
+            <img src="/marutsuki.png" className="w-16" />
+            <div>
+              <h1 className=" ">marutsuki</h1>
+              <h2>Digital artist</h2>
+            </div>
+          </div>
         </div>
 
         <NavigableSection id="2024">
