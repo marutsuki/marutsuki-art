@@ -95,6 +95,9 @@ const Main: FC = () => {
             ref={(el) => el && (yearLabels.current[0] = el)}
             label="2024"
           >
+            <Artwork src="/art/31.png" /> 
+            <Artwork src="/art/29.png" />
+            <Artwork src="/art/30.png" />
             <Artwork src="/art/21.png" />
             <Artwork src="/art/22.png" />
           </ArtBoard>
