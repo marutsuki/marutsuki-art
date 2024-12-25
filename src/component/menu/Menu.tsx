@@ -23,7 +23,7 @@ const Menu: FC<MenuProps> = ({ location, options }) => {
     <menu className="fixed" style={{ top: location.y, left: location.x }}>
       {options.map((opt, i) => (
         <>
-          <div key={i} className="flex flex-row items-center">
+          <div key={"dot-" + i} className="flex flex-row items-center">
             <svg
               className="w-3 m-2 dark:fill-darkFg"
               viewBox="0 0 100 100"
@@ -45,6 +45,7 @@ const Menu: FC<MenuProps> = ({ location, options }) => {
           </div>
           {i !== options.length - 1 && (
             <svg
+              key={"line-" + i}
               className="stroke-lightFg dark:stroke-darkFg"
               viewBox="0 0 100 100"
               xmlns="http://www.w3.org/2000/svg"
