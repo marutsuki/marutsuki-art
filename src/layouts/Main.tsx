@@ -81,7 +81,7 @@ const Main: FC = () => {
             </div>
             <div className="flex gap-2 justify-end [&_*]:dark:text-darkFg">
               <h2 className="">Email:</h2>
-              <p>lucien.7789@gmail.com</p>
+              <p>art@marutsuki.io</p>
             </div>
             <div className="flex gap-2 justify-end [&_*]:dark:text-darkFg">
               <h2 className="">Phone:</h2>
@@ -95,7 +95,7 @@ const Main: FC = () => {
             ref={(el) => el && (yearLabels.current[0] = el)}
             label="2024"
           >
-            <Artwork src="/art/31.png" /> 
+            <Artwork src="/art/31.png" />
             <Artwork src="/art/29.png" />
             <Artwork src="/art/30.png" />
             <Artwork src="/art/21.png" />
