@@ -47,8 +47,8 @@ const Main: FC = () => {
           },
         ]}
       />
-      <div className="mr-48">
-        <div className="text-left top-0 sticky z-50 drop-shadow-lg mb-48 flex justify-between">
+      <div className="lg:mr-48">
+        <div className="text-left top-0 sticky z-50 drop-shadow-lg mb-48 flex justify-between flex-col md:flex-row">
           <div className="flex items-center">
             <img src="/marutsuki.png" className="w-16 dark:invert" />
             <div>
@@ -98,6 +98,7 @@ const Main: FC = () => {
             <Artwork src="/art/31.png" />
             <Artwork src="/art/29.png" />
             <Artwork src="/art/30.png" />
+            <Artwork src="/art/32.png" />
             <Artwork src="/art/21.png" />
             <Artwork src="/art/22.png" />
           </ArtBoard>
